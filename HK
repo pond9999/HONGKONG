@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+ <title>ทริปฮ่องกง 2026 | 20-23 พ.ย.</title>
+</head>
+<body>
+ <div>
+ <h1>🇭🇰 Hong Kong Trip 2026</h1>
+ <p>แผนการเดินทางและคู่มือขึ้น MTR / Bus แบบละเอียด</p>
+ </div>
+ <div>
+ <div>
+ <button onclick="showTab(0)">Day 1</button>
+ <button onclick="showTab(1)">Day 2</button>
+ <button onclick="showTab(2)">Day 3</button>
+ <button onclick="showTab(3)">Day 4</button>
+ <button onclick="showTab(4)">ค่าใช้จ่าย</button>
+ </div>
+ </div>
+ <div>
+ <div>
+ <div>
+ <div>ที่พัก</div>
+ <div>Kam Mun Guest House (Mong Kok)</div>
+ </div>
+ <div>
+ <div>ขาไป</div>
+ <div>SL-364 (ถึง 19:25)</div>
+ </div>
+ <div>
+ <div>ขากลับ</div>
+ <div>SL-361 (ออก 14:00)</div>
+ </div>
+ <div>
+ <div>ค่าเดินทางรวม</div>
+ <div>~234 HKD / คน</div>
+ </div>
+ </div>
+ <div>
+ <div>
+ <div>
+ <span>รถบัสสนามบิน A21</span>
+ <div>19:25 – 21:00 น.</div>
+ <div>สนามบิน HKG ➔ ที่พักย่านมงก๊ก</div>
+ <ul>
+ <li>รับกระเป๋าเสร็จ เดินออกโถงผู้โดยสารตามป้าย <b>Bus (Ground Transportation Centre)</b></li>
+ <li>ไปที่ชานชาลาสาย <b>Cityflyer A21</b> (ค่ารถ 34.6 HKD แตะ Octopus ได้)</li>
+ <li>นั่งชมวิวบนรถบัสประมาณ 40 นาที</li>
+ <li>ลงที่ป้ายที่ 9: <span>Sino Centre, Nathan Road</span></li>
+ <li>เดินต่อเพียง 100 เมตร เข้าตึก Sun Hing Building ถึง <b>Kam Mun Guest House</b></li>
+ </ul>
+ </div>
+ <div>
+ <span>MTR สีแดง</span>
+ <div>21:30 – 23:00 น.</div>
+ <div>ชมวิว Victoria Harbour (Avenue of Stars)</div>
+ <ul>
+ <li>เดินเข้าสถานี MTR <b>Mong Kok</b></li>
+ <li>ขึ้นชานชาลา <b>สายสีแดง (Tsuen Wan Line)</b> มุ่งหน้า <span>Central</span></li>
+ <li>นั่ง 3 สถานี ลงที่สถานี <b>Tsim Sha Tsui</b></li>
+ <li>ใช้ <span>ทางออก J หรือ L6</span> เพื่อโผล่ขึ้นริมอ่าว Victoria ชมแสงสีและไฟตึกฮ่องกง</li>
+ <li>ขากลับ: นั่ง MTR สายสีแดงจาก Tsim Sha Tsui มุ่งหน้า <b>Tsuen Wan</b> ลง Mong Kok</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ <div>
+ <div>
+ <div>
+ <span>MTR 3 ต่อ</span>
+ <div>09:00 – 10:15 น.</div>
+ <div>มงก๊ก ➔ Hong Kong Disneyland</div>
+ <ul>
+ <li>เข้าสถานี <b>Mong Kok</b> ขึ้นสายสีแดง มุ่งหน้า <span>Tsuen Wan</span></li>
+ <li>ลงที่สถานี <b>Lai King</b> (เดินข้ามชานชาลาฝั่งตรงข้าม ไม่ต้องขึ้น-ลงบันได)</li>
+ <li>ต่อ <b>สายสีส้ม (Tung Chung Line)</b> มุ่งหน้า <span>Tung Chung</span></li>
+ <li>ลงที่สถานี <b>Sunny Bay</b></li>
+ <li>ต่อ <b>สายสีชมพู (Disneyland Resort Line)</b> ขบวนรถไฟหน้าต่างมิกกี้เมาส์ ลงหน้าทางเข้าสวนสนุก</li>
+ </ul>
+ </div>
+ <div>
+ <span>กิจกรรมเต็มวัน</span>
+ <div>10:30 – 21:30 น.</div>
+ <div>Hong Kong Disneyland</div>
+ <ul>
+ <li>สนุกเต็มวันกับโซน World of Frozen, Castle of Magical Dreams</li>
+ <li>รอดูการแสดงพลุและแสงสี "Momentous" รอบ 20:30 หรือ 21:00 น.</li>
+ <li>ขากลับ: เดินทางย้อนรูทเดิม (Disneyland Resort ➔ Sunny Bay ➔ Lai King ➔ Mong Kok)</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ <div>
+ <div>
+ <div>
+ <span>MTR สีเขียว</span>
+ <div>09:30 – 12:30 น.</div>
+ <div>ไหว้พระวัดหวังต้าเซียน (Wong Tai Sin)</div>
+ <ul>
+ <li>เข้าสถานี <b>Mong Kok</b> ลงชานชาลา <b>สายสีเขียว (Kwun Tong Line)</b></li>
+ <li>ขึ้นฝั่งที่มุ่งหน้าไปทาง <span>Tiu Keng Leng</span></li>
+ <li>นั่งยาวต่อเดียว 5 สถานี ลงที่สถานี <b>Wong Tai Sin</b></li>
+ <li>ใช้ <span>ทางออก B3</span> เดินขึ้นมาเจอหน้าวัดทันที ขอพรด้ายแดงความรักและการงาน</li>
+ </ul>
+ </div>
+ <div>
+ <span>Open-Top Bus H2K</span>
+ <div>16:30 – 20:30 น.</div>
+ <div>จิมซาจุ่ย & นั่งรถบัสเปิดหลังคาชมแสงสี</div>
+ <ul>
+ <li>จาก Wong Tai Sin นั่งสายสีเขียวลง <b>Mong Kok</b> ข้ามไปสายสีแดงลง <b>Tsim Sha Tsui</b></li>
+ <li>ใช้ <span>ทางออก B1 หรือ B2</span> เดินเลี้ยวเข้าถนน Cameron Road</li>
+ <li>ขึ้นรถบัสเปิดประทุน <b>Citybus Rickshaw Sightseeing (สาย H2K)</b> รอบค่ำ ชมป้ายไฟนีออนและแสงสีย่านเกาลูน</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ <div>
+ <div>
+ <div>
+ <span>MTR + Airport Express</span>
+ <div>09:45 – 11:00 น.</div>
+ <div>เดินทางกลับสนามบิน HKG</div>
+ <ul>
+ <li>Check-out จาก Kam Mun Guest House</li>
+ <li>เข้าสถานี <b>Mong Kok</b> สายสีแดง ลงสถานี <b>Lai King</b></li>
+ <li>เปลี่ยนเป็นสายสีส้ม นั่ง 1 สถานีลง <b>Tsing Yi</b></li>
+ <li>เปลี่ยนขึ้น <b>Airport Express</b> นั่งต่อเดียว 14 นาทีถึงชานชาลา Terminal สนามบิน</li>
+ <li>(ทริคกลุ่ม 4 คน: ซื้อตั๋ว Airport Express แบบ Group of 4 ที่เคาน์เตอร์สถานี Tsing Yi ได้คนละ 42.5 HKD)</li>
+ </ul>
+ </div>
+ <div>
+ <span>เที่ยวบิน SL-361</span>
+ <div>11:00 – 15:45 น.</div>
+ <div>เช็คอิน & เดินทางถึงดอนเมือง (DMK)</div>
+ <ul>
+ <li>11:00 น. โหลดกระเป๋าและผ่านจุดตรวจความปลอดภัย</li>
+ <li>14:00 น. เครื่องออกบินสู่สนามบินดอนเมือง</li>
+ <li>15:45 น. ถึงกรุงเทพฯ โดยสวัสดิภาพ</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ <div>
+ <div>
+ <div>สรุปประมาณการค่าเดินทางต่อท่าน</div>
+ <p>แตะ Octopus เป็นหลัก ยกเว้น Airport Express ที่ซื้อตั๋วกลุ่ม</p>
+ <table>
+ <thead>
+ <tr>
+ <th>รายการ</th>
+ <th>ค่าโดยสาร</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Day 1: รถบัสสนามบิน A21</td>
+ <td>34.6 HKD</td>
+ </tr>
+ <tr>
+ <td>Day 1: MTR ไป-กลับ จิมซาจุ่ย</td>
+ <td>~12.0 HKD</td>
+ </tr>
+ <tr>
+ <td>Day 2: MTR ไป-กลับ Disneyland</td>
+ <td>44.4 HKD</td>
+ </tr>
+ <tr>
+ <td>Day 3: MTR ไปหวังต้าเซียน + จิมซาจุ่ย</td>
+ <td>~22.4 HKD</td>
+ </tr>
+ <tr>
+ <td>Day 3: ตั๋วรถบัสชมวิว H2K</td>
+ <td>47.6 HKD</td>
+ </tr>
+ <tr>
+ <td>Day 4: MTR มงก๊ก ➔ Tsing Yi + Airport Express</td>
+ <td>~73.0 HKD</td>
+ </tr>
+ <tr>
+ <td>รวมต่อคน (ตลอดทริป)</td>
+ <td>~234 HKD</td>
+ </tr>
+ <tr>
+ <td>รวม 4 คน (~4,200 บาท)</td>
+ <td>~936 HKD</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </div>
+</body>
+</html>
