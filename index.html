@@ -6,16 +6,18 @@
   <title>ทริปฮ่องกง 2026 | 20-23 พ.ย.</title>
   <style>
     :root {
-      --bg: #0f1117;
-      --card-bg: #1a1d26;
-      --card-border: #282c39;
-      --text: #ffffff;
-      --text-muted: #8e95a5;
-      --accent: #3b82f6;
-      --accent-soft: rgba(59, 130, 246, 0.15);
-      --badge-bus: #f59e0b;
-      --badge-mtr: #ef4444;
-      --badge-green: #10b981;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #2563eb;
+      --badge-bus: #d97706;
+      --badge-mtr: #dc2626;
+      --badge-green: #059669;
+      
+      /* Liquidglass Variables */
+      --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 100%);
+      --glass-border: rgba(255, 255, 255, 0.6);
+      --glass-shadow: 0 10px 32px rgba(30, 41, 59, 0.05);
+      --glass-inner-light: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 1px 0 0 rgba(255, 255, 255, 0.4);
     }
 
     * {
@@ -27,85 +29,129 @@
     }
 
     body {
-      background-color: var(--bg);
-      color: var(--text);
+      color: var(--text-main);
       line-height: 1.5;
       padding-bottom: 60px;
+      background-color: #f8fafc;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Background blurred shapes for Liquidglass effect */
+    .bg-shapes {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      background: #f8fafc;
+    }
+    .shape1 {
+      position: absolute; top: -5%; left: -10%;
+      width: 350px; height: 350px;
+      background: #dbeafe; /* Light Blue */
+      border-radius: 50%;
+      filter: blur(60px);
+    }
+    .shape2 {
+      position: absolute; bottom: 10%; right: -5%;
+      width: 300px; height: 300px;
+      background: #fce7f3; /* Light Pink */
+      border-radius: 50%;
+      filter: blur(60px);
+    }
+    .shape3 {
+      position: absolute; top: 40%; left: 50%;
+      width: 250px; height: 250px;
+      background: #e0e7ff; /* Indigo */
+      border-radius: 50%;
+      filter: blur(50px);
     }
 
     .header {
-      padding: 30px 20px 20px;
+      padding: 40px 20px 20px;
       text-align: center;
-      background: linear-gradient(180deg, #1e2433 0%, var(--bg) 100%);
-      border-bottom: 1px solid var(--card-border);
     }
 
     .header h1 {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 4px;
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 6px;
       letter-spacing: -0.5px;
+      color: #0f172a;
     }
 
     .header p {
       color: var(--text-muted);
       font-size: 14px;
+      font-weight: 500;
     }
 
     .nav-container {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(15, 17, 23, 0.9);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
     }
 
     .tabs {
       display: flex;
-      gap: 8px;
+      gap: 10px;
       overflow-x: auto;
       scrollbar-width: none;
+      max-width: 640px;
+      margin: 0 auto;
     }
     .tabs::-webkit-scrollbar { display: none; }
 
     .tab-btn {
       flex: 0 0 auto;
-      padding: 8px 18px;
-      border-radius: 20px;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
+      padding: 10px 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
       color: var(--text-muted);
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
     }
 
     .tab-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #ffffff;
-      box-shadow: 0 2px 10px rgba(59, 130, 246, 0.4);
+      background: #ffffff;
+      border-color: #ffffff;
+      color: var(--accent);
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.15), inset 0 -2px 0 var(--accent);
     }
 
     .container {
       max-width: 640px;
       margin: 0 auto;
-      padding: 16px;
+      padding: 20px 16px;
+    }
+
+    .glass-panel {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow), var(--glass-inner-light);
+      border-radius: 20px;
     }
 
     .overview-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 20px;
+      padding: 18px;
+      margin-bottom: 24px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 16px;
     }
 
     .overview-item {
@@ -116,11 +162,15 @@
       color: var(--text-muted);
       font-size: 11px;
       text-transform: uppercase;
-      margin-bottom: 2px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
     }
 
     .overview-val {
-      font-weight: 600;
+      font-weight: 700;
+      color: #334155;
+      font-size: 14px;
     }
 
     .tab-content {
@@ -129,57 +179,58 @@
 
     .tab-content.active {
       display: block;
-      animation: fadeIn 0.25s ease-out;
+      animation: floatUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .timeline {
       position: relative;
-      padding-left: 24px;
+      padding-left: 28px;
     }
 
     .timeline::before {
       content: '';
       position: absolute;
-      left: 7px;
-      top: 10px;
-      bottom: 10px;
+      left: 9px;
+      top: 14px;
+      bottom: 14px;
       width: 2px;
-      background: var(--card-border);
+      background: rgba(30, 41, 59, 0.1);
+      border-radius: 2px;
     }
 
     .card {
       position: relative;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 16px;
-      margin-bottom: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
     }
 
     .card::before {
       content: '';
       position: absolute;
-      left: -21px;
-      top: 20px;
-      width: 10px;
-      height: 10px;
+      left: -24px;
+      top: 24px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
-      background: var(--accent);
-      border: 2px solid var(--bg);
+      background: #ffffff;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+      z-index: 2;
     }
 
     .badge {
       display: inline-block;
       font-size: 11px;
       font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 6px;
-      margin-bottom: 6px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      letter-spacing: 0.2px;
     }
 
     .badge-bus { background: rgba(245, 158, 11, 0.15); color: var(--badge-bus); }
@@ -189,25 +240,26 @@
     .card-time {
       font-size: 12px;
       color: var(--text-muted);
-      font-weight: 500;
-      margin-bottom: 4px;
+      font-weight: 600;
+      margin-bottom: 6px;
     }
 
     .card-title {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      color: #0f172a;
     }
 
     .route-steps {
       list-style: none;
-      font-size: 13px;
-      color: #d1d5db;
+      font-size: 13.5px;
+      color: #475569;
     }
 
     .route-steps li {
-      margin-bottom: 6px;
-      padding-left: 14px;
+      margin-bottom: 8px;
+      padding-left: 16px;
       position: relative;
     }
 
@@ -217,42 +269,29 @@
       left: 0;
       color: var(--accent);
       font-weight: bold;
+      font-size: 16px;
+      line-height: 1;
+      top: 1px;
     }
 
     .highlight {
-      color: #60a5fa;
-      font-weight: 600;
-    }
-
-    .cost-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      margin-top: 8px;
-    }
-
-    .cost-table th, .cost-table td {
-      padding: 10px 8px;
-      border-bottom: 1px solid var(--card-border);
-      text-align: left;
-    }
-
-    .cost-table th {
-      color: var(--text-muted);
-      font-size: 12px;
-    }
-
-    .cost-table td:last-child {
-      text-align: right;
+      color: var(--accent);
       font-weight: 600;
     }
   </style>
 </head>
 <body>
 
+  <!-- Ambient Animated Background -->
+  <div class="bg-shapes">
+    <div class="shape1"></div>
+    <div class="shape2"></div>
+    <div class="shape3"></div>
+  </div>
+
   <div class="header">
-    <h1>🇭🇰 Hong Kong Trip 2026</h1>
-    <p>แผนการเดินทางและคู่มือขึ้น MTR / Bus แบบละเอียด</p>
+    <h1>🇭🇰 Hong Kong Trip</h1>
+    <p>20 - 23 พ.ย. 2026</p>
   </div>
 
   <div class="nav-container">
@@ -261,79 +300,74 @@
       <button class="tab-btn" onclick="showTab(1)">Day 2</button>
       <button class="tab-btn" onclick="showTab(2)">Day 3</button>
       <button class="tab-btn" onclick="showTab(3)">Day 4</button>
-      <button class="tab-btn" onclick="showTab(4)">ค่าใช้จ่าย</button>
     </div>
   </div>
 
   <div class="container">
     
-    <div class="overview-card">
+    <div class="overview-card glass-panel">
       <div class="overview-item">
         <div class="overview-label">ที่พัก</div>
         <div class="overview-val">Kam Mun Guest House (Mong Kok)</div>
       </div>
       <div class="overview-item">
-        <div class="overview-label">ขาไป (เวลาใหม่)</div>
-        <div class="overview-val" style="color: #60a5fa;">09:15 ➔ 13:00 น.</div>
+        <div class="overview-label">ขาไป (DMK ➔ HKG)</div>
+        <div class="overview-val" style="color: var(--accent);">09:15 ➔ 13:00 น.</div>
       </div>
-      <div class="overview-item">
-        <div class="overview-label">ขากลับ</div>
-        <div class="overview-val">SL-361 (ออก 14:00)</div>
-      </div>
-      <div class="overview-item">
-        <div class="overview-label">ค่าเดินทางรวม</div>
-        <div class="overview-val" style="color: #10b981;">~234 HKD / คน</div>
+      <div class="overview-item" style="grid-column: 1 / -1;">
+        <div class="overview-label">ขากลับ (HKG ➔ DMK)</div>
+        <div class="overview-val">SL-361 (ออก 14:00 น.)</div>
       </div>
     </div>
 
     <!-- DAY 1 -->
     <div class="tab-content active" id="day1">
       <div class="timeline">
-        <div class="card">
+        <div class="card glass-panel">
           <span class="badge badge-spot">เที่ยวบิน SL-364</span>
           <div class="card-time">09:15 – 13:00 น.</div>
           <div class="card-title">ดอนเมือง (DMK) ➔ สนามบินฮ่องกง (HKG)</div>
           <ul class="route-steps">
             <li>06:45 น. รวมตัวเคาน์เตอร์ Thai Lion Air Terminal 1 สนามบินดอนเมือง</li>
             <li>13:00 น. เดินทางถึงสนามบินนานาชาติฮ่องกง (HKG)</li>
-            <li>ผ่านพิธีการตรวจคนเข้าเมือง รับกระเป๋า และซื้อ/เติมเงินบัตร <b>Octopus</b></li>
+            <li>ผ่านพิธีการตรวจคนเข้าเมือง รับกระเป๋า และเตรียมบัตร <b>Octopus</b></li>
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card glass-panel">
           <span class="badge badge-bus">รถบัสสนามบิน A21</span>
           <div class="card-time">14:00 – 15:15 น.</div>
           <div class="card-title">สนามบิน HKG ➔ ที่พักย่านมงก๊ก</div>
           <ul class="route-steps">
             <li>เดินตามป้าย <b>Bus (Ground Transportation Centre)</b></li>
-            <li>ขึ้นรถบัส <b>Cityflyer สาย A21</b> (ค่าโดยสาร 34.6 HKD แตะ Octopus)</li>
+            <li>ขึ้นรถบัส <b>Cityflyer สาย A21</b> แตะจ่ายด้วยบัตร Octopus</li>
             <li>นั่งชมวิวข้ามสะพาน Tsing Ma ประมาณ 40 นาที</li>
             <li>ลงป้ายที่ 9: <span class="highlight">Sino Centre, Nathan Road</span></li>
-            <li>เดินต่อเพียง 100 เมตร เข้าตึก Sun Hing Building ถึง <b>Kam Mun Guest House</b> เช็คอินเก็บสัมภาระ</li>
+            <li>เดินต่อ 100 เมตร เข้าตึก Sun Hing Building ถึง <b>Kam Mun Guest House</b></li>
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card glass-panel">
           <span class="badge badge-spot">เดินเท้าชิลๆ</span>
           <div class="card-time">15:30 – 18:30 น.</div>
           <div class="card-title">สำรวจย่านมงก๊ก & หาของอร่อยรองท้อง</div>
           <ul class="route-steps">
             <li>เดินเล่นถนนรองเท้าผ้าใบ <b>Sneaker Street (Fa Yuen Street)</b></li>
-            <li>แวะชิม Street Food ย่านมงก๊ก (ลูกชิ้นแกงกะหรี่, ทาร์ตไข่, ชานมฮ่องกง)</li>
+            <li>แวะชิม Street Food ย่านมงก๊ก (ลูกชิ้นแกงกะหรี่, ทาร์ตไข่, ชานม)</li>
             <li>เดินช้อปปิ้งตลาดนัด <b>Ladies Market</b> และห้าง Langham Place</li>
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card glass-panel">
           <span class="badge badge-mtr">MTR สีแดง</span>
           <div class="card-time">19:00 – 21:30 น.</div>
-          <div class="card-title">ชมไฟริมอ่าว Victoria Harbour (Avenue of Stars)</div>
+          <div class="card-title">ชมไฟริมอ่าว Victoria Harbour</div>
           <ul class="route-steps">
-            <li>เดินเข้าสถานี MTR <b>Mong Kok</b> ขึ้นสายสีแดง มุ่งหน้า <span class="highlight">Central</span></li>
+            <li>เข้าสถานี MTR <b>Mong Kok</b> ขึ้นสายสีแดง มุ่งหน้า <span class="highlight">Central</span></li>
             <li>นั่ง 3 สถานี ลงที่สถานี <b>Tsim Sha Tsui</b></li>
-            <li>ออก <span class="highlight">ทางออก J หรือ L6</span> เดินเลียบอ่าวชมแสงสีตึกระฟ้าและรอยฝ่ามือดารา</li>
-            <li>20:00 น. รอชมการแสดงแสงสีเสียง <b>A Symphony of Lights</b> ริมอ่าว</li>
-            <li>ขากลับ: นั่ง MTR สายสีแดงจาก Tsim Sha Tsui มุ่งหน้า <b>Tsuen Wan</b> กลับมาลง Mong Kok</li>
+            <li>ออก <span class="highlight">ทางออก J หรือ L6</span> เดินเลียบอ่าวชมวิว Avenue of Stars</li>
+            <li>20:00 น. รอชมการแสดงแสงสีเสียง <b>A Symphony of Lights</b></li>
+            <li>ขากลับ: นั่ง MTR สายสีแดงจาก Tsim Sha Tsui มุ่งหน้า <b>Tsuen Wan</b> กลับลง Mong Kok</li>
           </ul>
         </div>
       </div>
@@ -342,27 +376,27 @@
     <!-- DAY 2 -->
     <div class="tab-content" id="day2">
       <div class="timeline">
-        <div class="card">
+        <div class="card glass-panel">
           <span class="badge badge-mtr">MTR 3 ต่อ</span>
           <div class="card-time">09:00 – 10:15 น.</div>
           <div class="card-title">มงก๊ก ➔ Hong Kong Disneyland</div>
           <ul class="route-steps">
             <li>เข้าสถานี <b>Mong Kok</b> ขึ้นสายสีแดง มุ่งหน้า <span class="highlight">Tsuen Wan</span></li>
-            <li>ลงสถานี <b>Lai King</b> (เดินข้ามชานชาลาฝั่งตรงข้าม ไม่ต้องขึ้น-ลงบันได)</li>
+            <li>ลงสถานี <b>Lai King</b> (เดินข้ามชานชาลาฝั่งตรงข้าม ไม่ต้องขึ้นบันได)</li>
             <li>ต่อ <b>สายสีส้ม (Tung Chung Line)</b> มุ่งหน้า <span class="highlight">Tung Chung</span></li>
             <li>ลงสถานี <b>Sunny Bay</b></li>
             <li>ต่อ <b>สายสีชมพู (Disneyland Resort Line)</b> ลงหน้าทางเข้าสวนสนุก</li>
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card glass-panel">
           <span class="badge badge-spot">กิจกรรมเต็มวัน</span>
           <div class="card-time">10:30 – 21:30 น.</div>
           <div class="card-title">Hong Kong Disneyland</div>
           <ul class="route-steps">
             <li>สนุกเต็มวันกับโซน World of Frozen, Castle of Magical Dreams</li>
             <li>รอดูการแสดงพลุและแสงสี "Momentous" รอบ 20:30 หรือ 21:00 น.</li>
-            <li>ขากลับ: เดินทางย้อนรูทเดิม (Disneyland Resort ➔ Sunny Bay ➔ Lai King ➔ Mong Kok)</li>
+            <li>ขากลับ: เดินทางย้อนรูทเดิม (Disneyland ➔ Sunny Bay ➔ Lai King ➔ Mong Kok)</li>
           </ul>
         </div>
       </div>
@@ -371,7 +405,7 @@
     <!-- DAY 3 -->
     <div class="tab-content" id="day3">
       <div class="timeline">
-        <div class="card">
+        <div class="card glass-panel">
           <span class="badge badge-mtr">MTR สีเขียว</span>
           <div class="card-time">09:30 – 12:30 น.</div>
           <div class="card-title">ไหว้พระวัดหวังต้าเซียน (Wong Tai Sin)</div>
@@ -379,18 +413,18 @@
             <li>เข้าสถานี <b>Mong Kok</b> ลงชานชาลา <b>สายสีเขียว (Kwun Tong Line)</b></li>
             <li>ขึ้นฝั่งที่มุ่งหน้าไปทาง <span class="highlight">Tiu Keng Leng</span></li>
             <li>นั่งยาวต่อเดียว 5 สถานี ลงที่สถานี <b>Wong Tai Sin</b></li>
-            <li>ใช้ <span class="highlight">ทางออก B3</span> เดินขึ้นมาเจอหน้าวัดทันที ขอพรด้ายแดงความรักและการงาน</li>
+            <li>ใช้ <span class="highlight">ทางออก B3</span> เดินขึ้นมาเจอหน้าวัด ขอพรด้ายแดงความรัก</li>
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card glass-panel">
           <span class="badge badge-bus">Open-Top Bus H2K</span>
           <div class="card-time">16:30 – 20:30 น.</div>
           <div class="card-title">จิมซาจุ่ย & นั่งรถบัสเปิดหลังคาชมแสงสี</div>
           <ul class="route-steps">
-            <li>จาก Wong Tai Sin นั่งสายสีเขียวลง <b>Mong Kok</b> ข้ามไปสายสีแดงลง <b>Tsim Sha Tsui</b></li>
+            <li>จาก Wong Tai Sin นั่งสายสีเขียวลง <b>Mong Kok</b> เปลี่ยนสายสีแดงลง <b>Tsim Sha Tsui</b></li>
             <li>ใช้ <span class="highlight">ทางออก B1 หรือ B2</span> เดินเลี้ยวเข้าถนน Cameron Road</li>
-            <li>ขึ้นรถบัสเปิดประทุน <b>Citybus Rickshaw Sightseeing (สาย H2K)</b> รอบค่ำ ชมป้ายไฟนีออนและแสงสีย่านเกาลูน</li>
+            <li>ขึ้นรถบัสเปิดประทุน <b>Citybus (สาย H2K)</b> รอบค่ำ ชมป้ายไฟนีออนย่านเกาลูน</li>
           </ul>
         </div>
       </div>
@@ -399,7 +433,7 @@
     <!-- DAY 4 -->
     <div class="tab-content" id="day4">
       <div class="timeline">
-        <div class="card">
+        <div class="card glass-panel">
           <span class="badge badge-mtr">MTR + Airport Express</span>
           <div class="card-time">09:45 – 11:00 น.</div>
           <div class="card-title">เดินทางกลับสนามบิน HKG</div>
@@ -407,12 +441,12 @@
             <li>Check-out ออกจากที่พัก Kam Mun Guest House</li>
             <li>เข้าสถานี <b>Mong Kok</b> สายสีแดง ลงสถานี <b>Lai King</b></li>
             <li>เปลี่ยนเป็นสายสีส้ม นั่ง 1 สถานีลง <b>Tsing Yi</b></li>
-            <li>เปลี่ยนขึ้น <b>Airport Express</b> นั่งต่อเดียว 14 นาทีถึงชานชาลา Terminal สนามบิน</li>
-            <li>(ทริคกลุ่ม 4 คน: ซื้อตั๋ว Airport Express Group of 4 ที่เคาน์เตอร์สถานี Tsing Yi ได้คนละ 42.5 HKD)</li>
+            <li>เปลี่ยนขึ้น <b>Airport Express</b> นั่งตรงเข้าชานชาลา Terminal สนามบิน</li>
+            <li>(สามารถซื้อตั๋ว Airport Express แบบกลุ่ม 4 คนที่สถานี Tsing Yi ได้)</li>
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card glass-panel">
           <span class="badge badge-spot">เที่ยวบิน SL-361</span>
           <div class="card-time">11:00 – 15:45 น.</div>
           <div class="card-title">เช็คอิน & เดินทางถึงดอนเมือง (DMK)</div>
@@ -422,57 +456,6 @@
             <li>15:45 น. ถึงกรุงเทพฯ โดยสวัสดิภาพ</li>
           </ul>
         </div>
-      </div>
-    </div>
-
-    <!-- EXPENSES -->
-    <div class="tab-content" id="day5">
-      <div class="card">
-        <div class="card-title">สรุปประมาณการค่าเดินทางต่อท่าน</div>
-        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">แตะ Octopus เป็นหลัก ยกเว้น Airport Express ที่ซื้อตั๋วกลุ่ม</p>
-        
-        <table class="cost-table">
-          <thead>
-            <tr>
-              <th>รายการ</th>
-              <th style="text-align: right;">ค่าโดยสาร</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Day 1: รถบัสสนามบิน A21</td>
-              <td>34.6 HKD</td>
-            </tr>
-            <tr>
-              <td>Day 1: MTR ไป-กลับ จิมซาจุ่ย</td>
-              <td>~12.0 HKD</td>
-            </tr>
-            <tr>
-              <td>Day 2: MTR ไป-กลับ Disneyland</td>
-              <td>44.4 HKD</td>
-            </tr>
-            <tr>
-              <td>Day 3: MTR ไปหวังต้าเซียน + จิมซาจุ่ย</td>
-              <td>~22.4 HKD</td>
-            </tr>
-            <tr>
-              <td>Day 3: ตั๋วรถบัสชมวิว H2K</td>
-              <td>47.6 HKD</td>
-            </tr>
-            <tr>
-              <td>Day 4: MTR มงก๊ก ➔ Tsing Yi + Airport Express</td>
-              <td>~73.0 HKD</td>
-            </tr>
-            <tr style="border-top: 2px solid var(--accent);">
-              <td style="font-weight: 700; color: #fff;">รวมต่อคน (ตลอดทริป)</td>
-              <td style="color: #60a5fa; font-size: 15px;">~234 HKD</td>
-            </tr>
-            <tr>
-              <td style="color: var(--text-muted);">รวม 4 คน (~4,200 บาท)</td>
-              <td style="color: #10b981;">~936 HKD</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
 
