@@ -6,155 +6,346 @@
 <title>ทริปฮ่องกง-เซินเจิ้น 2026 | 20-25 พ.ย.</title>
 <style>
   :root {
-    --text-main: #1e293b;
+    --bg-page: #ffffff;
+    --bg-surface: #f8fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --text-main: #0f172a;
+    --text-body: #334155;
     --text-muted: #64748b;
     --accent: #2563eb;
-    --accent-2: #7c3aed;
+    --accent-soft: #eff6ff;
     --badge-bus: #d97706;
     --badge-mtr: #dc2626;
     --badge-green: #059669;
     --badge-border: #0284c7;
-
-    --glass-bg: linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.35) 60%, rgba(255,255,255,0.55) 100%);
-    --glass-border: rgba(255,255,255,0.7);
-    --glass-shadow: 0 10px 32px rgba(30,41,59,0.08), 0 1px 1px rgba(30,41,59,0.04);
-    --glass-inner-light: inset 0 1px 0 rgba(255,255,255,0.9), inset 1px 0 0 rgba(255,255,255,0.45), inset -1px -1px 0 rgba(255,255,255,0.15);
-
-    background: #f4f7fb;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif; }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  }
 
   html { scroll-padding-top: env(safe-area-inset-top, 0px); }
-  html, body { height: 100%; }
   body {
+    background-color: var(--bg-page);
     color: var(--text-main);
-    line-height: 1.5;
-    padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+    line-height: 1.55;
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
     padding-top: env(safe-area-inset-top, 0px);
-    background: #f4f7fb;
-    min-height: 100%;
-    position: relative;
     overflow-x: hidden;
   }
 
-  .bg-shapes { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: #f4f7fb; }
-  .blob { position: absolute; border-radius: 50%; filter: blur(60px); will-change: transform; transition: transform 0.05s linear; }
-  .blob1 { top: -8%; left: -12%; width: 380px; height: 380px; background: radial-gradient(circle at 35% 35%, #bfdbfe, #dbeafe 70%); }
-  .blob2 { bottom: 5%; right: -8%; width: 340px; height: 340px; background: radial-gradient(circle at 40% 40%, #fbcfe8, #fce7f3 70%); }
-  .blob3 { top: 42%; left: 46%; width: 280px; height: 280px; background: radial-gradient(circle at 40% 40%, #c7d2fe, #e0e7ff 70%); }
-  .blob4 { top: 65%; left: -6%; width: 220px; height: 220px; background: radial-gradient(circle at 40% 40%, #a7f3d0, #d1fae5 70%); opacity: .7; }
-
-  .sheen {
-    position: fixed; inset: 0; z-index: -1; pointer-events: none;
-    background: radial-gradient(600px 300px at var(--mx, 50%) var(--my, 0%), rgba(255,255,255,0.35), transparent 60%);
-    mix-blend-mode: screen;
+  /* Header */
+  .header {
+    padding: 40px 20px 20px;
+    text-align: center;
+    background: #ffffff;
+  }
+  .header h1 {
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+    color: var(--text-main);
+  }
+  .header p {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
   }
 
-  .header { padding: 44px 20px 20px; text-align: center; position: relative; }
-  .header h1 { font-size: 26px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.5px; color: #0f172a; }
-  .header p { color: var(--text-muted); font-size: 14px; font-weight: 500; }
-
+  /* Sticky Navigation with Sliding Pill Animation */
   .nav-container {
-    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 100;
-    background: rgba(255,255,255,0.45); backdrop-filter: blur(26px) saturate(160%); -webkit-backdrop-filter: blur(26px) saturate(160%);
-    padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,0.5); box-shadow: 0 4px 20px rgba(30,41,59,0.04);
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
   }
 
-  .tabs { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; max-width: 640px; margin: 0 auto; }
+  .tabs {
+    position: relative;
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2px;
+  }
   .tabs::-webkit-scrollbar { display: none; }
 
+  .tab-indicator {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: calc(100% - 4px);
+    background: var(--text-main);
+    border-radius: 20px;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 1;
+    pointer-events: none;
+  }
+
   .tab-btn {
-    flex: 0 0 auto; padding: 8px 16px; border-radius: 24px;
-    background: rgba(255,255,255,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border); color: var(--text-muted); font-size: 13px; font-weight: 600; cursor: pointer;
-    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.25s ease, transform 0.15s ease;
+  }
+  .tab-btn:active {
+    transform: scale(0.95);
   }
   .tab-btn.active {
-    background: #ffffff; border-color: #ffffff; color: var(--accent);
-    box-shadow: 0 4px 18px rgba(37,99,235,0.2), inset 0 -2px 0 var(--accent);
+    color: #ffffff;
   }
 
-  .container { max-width: 640px; margin: 0 auto; padding: 20px 16px; }
-
-  .glass-panel {
-    background: var(--glass-bg); backdrop-filter: blur(26px) saturate(170%); -webkit-backdrop-filter: blur(26px) saturate(170%);
-    border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow), var(--glass-inner-light);
-    border-radius: 20px; position: relative; overflow: hidden;
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 20px 16px;
   }
 
-  .overview-card { padding: 18px; margin-bottom: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .overview-label { color: var(--text-muted); font-size: 11px; font-weight: 700; margin-bottom: 4px; }
-  .overview-val { font-weight: 700; color: #334155; font-size: 13px; }
+  /* Clean Minimal Card */
+  .clean-panel {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+    border-radius: 18px;
+  }
 
-  .links-panel { padding: 16px; margin-bottom: 24px; }
-  .links-title { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: #0f172a; }
-  .links-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .overview-card {
+    padding: 18px;
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    background: var(--bg-surface);
+  }
+  .overview-label {
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .overview-val {
+    font-weight: 700;
+    color: var(--text-main);
+    font-size: 13px;
+  }
+
+  .links-panel {
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+  .links-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-main);
+  }
+  .links-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
   .link-btn {
-    display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 12px;
-    background: rgba(255,255,255,0.7); border: 1px solid var(--glass-border);
-    color: var(--accent); font-size: 12.5px; font-weight: 600; text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 13px;
+    border-radius: 12px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    color: var(--accent);
+    font-size: 12.5px;
+    font-weight: 600;
+    text-decoration: none;
     transition: all 0.2s ease;
   }
-  .link-btn:hover { background: #ffffff; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,99,235,0.15); }
+  .link-btn:hover, .link-btn:active {
+    background: var(--accent-soft);
+    border-color: #bfdbfe;
+    transform: translateY(-1px);
+  }
 
-  .tab-content { display: none; }
-  .tab-content.active { display: block; }
+  /* Tab Page Transition Animation */
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+    animation: pageFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 
-  .timeline { position: relative; padding-left: 28px; }
+  @keyframes pageFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes cardPopUp {
+    from { opacity: 0; transform: translateY(18px) scale(0.985); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 26px;
+  }
   .timeline::before {
-    content: ''; position: absolute; left: 9px; top: 14px; bottom: 14px; width: 2px;
-    background: linear-gradient(to bottom, rgba(37,99,235,0.5), rgba(124,58,237,0.15)); border-radius: 2px;
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 16px;
+    bottom: 16px;
+    width: 2px;
+    background: #e2e8f0;
+    border-radius: 2px;
   }
 
   .card {
-    position: relative; padding: 20px; margin-bottom: 20px; opacity: 0; transform: translateY(28px);
-    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    position: relative;
+    padding: 20px;
+    margin-bottom: 16px;
+    opacity: 0;
   }
-  .card.in-view { opacity: 1; transform: translateY(0); }
+  .tab-content.active .card {
+    animation: cardPopUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .tab-content.active .card:nth-child(1) { animation-delay: 0.04s; }
+  .tab-content.active .card:nth-child(2) { animation-delay: 0.11s; }
+  .tab-content.active .card:nth-child(3) { animation-delay: 0.18s; }
+  .tab-content.active .card:nth-child(4) { animation-delay: 0.25s; }
+
   .card::after {
-    content: ''; position: absolute; left: -24px; top: 24px; width: 12px; height: 12px;
-    border-radius: 50%; background: #ffffff; border: 2px solid var(--accent); z-index: 2;
+    content: '';
+    position: absolute;
+    left: -23px;
+    top: 24px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2.5px solid var(--accent);
+    z-index: 2;
   }
 
-  .badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 8px; margin-bottom: 8px; }
-  .badge-bus { background: rgba(245,158,11,0.15); color: var(--badge-bus); }
-  .badge-mtr { background: rgba(239,68,68,0.15); color: var(--badge-mtr); }
-  .badge-spot { background: rgba(16,185,129,0.15); color: var(--badge-green); }
-  .badge-border { background: rgba(2,132,199,0.15); color: var(--badge-border); }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  .badge-bus { background: #fef3c7; color: var(--badge-bus); }
+  .badge-mtr { background: #fee2e2; color: var(--badge-mtr); }
+  .badge-spot { background: #d1fae5; color: var(--badge-green); }
+  .badge-border { background: #e0f2fe; color: var(--badge-border); }
 
-  .card-time { font-size: 12px; color: var(--text-muted); font-weight: 600; margin-bottom: 6px; }
-  .card-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: #0f172a; }
+  .card-time {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .card-title {
+    font-size: 16.5px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-main);
+  }
 
-  .route-steps { list-style: none; font-size: 13.5px; color: #475569; }
-  .route-steps li { margin-bottom: 8px; padding-left: 16px; position: relative; }
-  .route-steps li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-weight: bold; font-size: 16px; line-height: 1; }
+  .route-steps {
+    list-style: none;
+    font-size: 13.5px;
+    color: var(--text-body);
+  }
+  .route-steps li {
+    margin-bottom: 8px;
+    padding-left: 16px;
+    position: relative;
+  }
+  .route-steps li:last-child { margin-bottom: 0; }
+  .route-steps li::before {
+    content: '•';
+    position: absolute;
+    left: 2px;
+    color: var(--accent);
+    font-weight: bold;
+  }
 
   .day-cost-tag {
-    display: inline-block; margin-top: 10px; padding: 6px 12px; border-radius: 10px;
-    background: rgba(37,99,235,0.08); border: 1px dashed rgba(37,99,235,0.3);
-    font-size: 12.5px; font-weight: 700; color: var(--accent);
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--accent);
   }
 
-  .cost-card { padding: 20px; margin-bottom: 16px; }
-  .cost-title { font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 12px; }
-  .cost-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin-bottom: 10px; }
-  .cost-table td { padding: 8px 0; border-bottom: 1px dashed rgba(203,213,225,0.6); }
-  .cost-table td:last-child { text-align: right; font-weight: 600; color: #334155; }
-  .cost-total-row { font-weight: 800; font-size: 15px; color: var(--accent); border-top: 2px solid rgba(37,99,235,0.2); }
-  .cost-total-row td { padding-top: 10px; border-bottom: none; }
+  /* Expenses Cards */
+  .cost-card {
+    padding: 20px;
+    margin-bottom: 16px;
+    opacity: 0;
+  }
+  .tab-content.active .cost-card {
+    animation: cardPopUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .tab-content.active .cost-card:nth-child(1) { animation-delay: 0.04s; }
+  .tab-content.active .cost-card:nth-child(2) { animation-delay: 0.11s; }
+  .tab-content.active .cost-card:nth-child(3) { animation-delay: 0.18s; }
+
+  .cost-title {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+  }
+  .cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  .cost-table td {
+    padding: 9px 0;
+    border-bottom: 1px solid #f1f5f9;
+    color: var(--text-body);
+  }
+  .cost-table td:last-child {
+    text-align: right;
+    font-weight: 600;
+    color: var(--text-main);
+  }
+  .cost-total-row td {
+    padding-top: 12px;
+    border-bottom: none;
+    border-top: 1.5px solid var(--border-color);
+    font-weight: 800;
+    font-size: 14.5px;
+    color: var(--accent) !important;
+  }
 </style>
 </head>
 <body>
-
-<div class="bg-shapes">
-  <div class="blob blob1" data-depth="0.15"></div>
-  <div class="blob blob2" data-depth="0.25"></div>
-  <div class="blob blob3" data-depth="0.1"></div>
-  <div class="blob blob4" data-depth="0.2"></div>
-</div>
-<div class="sheen" id="sheen"></div>
 
 <div class="header">
   <h1>🇭🇰 Hong Kong & Shenzhen 🇨🇳</h1>
@@ -162,7 +353,8 @@
 </div>
 
 <div class="nav-container" id="navBar">
-  <div class="tabs">
+  <div class="tabs" id="tabsWrapper">
+    <div class="tab-indicator" id="tabIndicator"></div>
     <button class="tab-btn active" onclick="showTab(0)">Day 1</button>
     <button class="tab-btn" onclick="showTab(1)">Day 2</button>
     <button class="tab-btn" onclick="showTab(2)">Day 3</button>
@@ -176,7 +368,7 @@
 <div class="container">
 
   <!-- General Overview Panel -->
-  <div class="overview-card glass-panel">
+  <div class="overview-card clean-panel">
     <div class="overview-item">
       <div class="overview-label">ที่พักฮ่องกงช่วงแรก (20-23 พ.ย.)</div>
       <div class="overview-val">Kam Mun Guest House</div>
@@ -196,7 +388,7 @@
   </div>
 
   <!-- Quick Links Panel -->
-  <div class="links-panel glass-panel">
+  <div class="links-panel clean-panel">
     <div class="links-title">🔗 ลิงก์ข้อมูล & ตารางเดินทาง</div>
     <div class="links-grid">
       <a href="https://www.klook.com/th/activity/1464-airport-express-hong-kong/" target="_blank" class="link-btn">🎫 บัตร Octopus / Airport Express</a>
@@ -208,7 +400,7 @@
   <!-- DAY 1 -->
   <div class="tab-content active" id="day1">
     <div class="timeline">
-      <div class="card glass-panel">
+      <div class="card clean-panel">
         <span class="badge badge-spot">เที่ยวบิน SL-360 (PNR: DGRGGZ)</span>
         <div class="card-time">06:30 – 13:00 น.</div>
         <div class="card-title">ดอนเมือง (DMK) ➔ สนามบินฮ่องกง (HKG)</div>
@@ -218,17 +410,17 @@
         </ul>
       </div>
 
-      <div class="card glass-panel">
+      <div class="card clean-panel">
         <span class="badge badge-bus">รถบัสสนามบิน A21</span>
         <div class="card-time">14:00 – 15:15 น.</div>
         <div class="card-title">สนามบิน HKG ➔ ที่พักย่านมงก๊ก</div>
         <ul class="route-steps">
-          <li>ขึ้นรถบัส <b>Cityflyer A21</b> ลงป้ายที่ 9 Sino Centre, Nathan Road</li>
+          <li>ขึ้นรถบัส <b>Cityflyer A21</b> ลงป้ายที่ 9 Sino Centre, Nathan Road (34.6 HKD)</li>
           <li>เดินเข้าตึก Sun Hing Building เช็กอิน <b>Kam Mun Guest House</b></li>
         </ul>
       </div>
 
-      <div class="card glass-panel">
+      <div class="card clean-panel">
         <span class="badge badge-spot">เดินเที่ยวมงก๊ก & อ่าววิกตอเรีย</span>
         <div class="card-time">15:30 – 21:30 น.</div>
         <div class="card-title">Sneaker Street, Ladies Market & A Symphony of Lights</div>
@@ -244,7 +436,7 @@
   <!-- DAY 2 -->
   <div class="tab-content" id="day2">
     <div class="timeline">
-      <div class="card glass-panel">
+      <div class="card clean-panel">
         <span class="badge badge-mtr">MTR 3 ต่อ</span>
         <div class="card-time">09:00 – 10:15 น.</div>
         <div class="card-title">มงก๊ก ➔ Hong Kong Disneyland</div>
@@ -253,7 +445,7 @@
         </ul>
       </div>
 
-      <div class="card glass-panel">
+      <div class="card clean-panel">
         <span class="badge badge-spot">กิจกรรมเต็มวัน</span>
         <div class="card-time">10:30 – 21:30 น.</div>
         <div class="card-title">Hong Kong Disneyland</div>
@@ -268,7 +460,7 @@
   <!-- DAY 3 -->
   <div class="tab-content" id="day3">
     <div class="timeline">
-      <div class="card glass-panel">
+      <div class="card clean-panel">
         <span class="badge badge-mtr">MTR สายสีเขียว</span>
         <div class="card-time">09:30 – 12:30 น.</div>
         <div class="card-title">วัดหวังต้าเซียน (Wong Tai Sin)</div>
@@ -277,7 +469,7 @@
         </ul>
       </div>
 
-      <div class="card glass-panel">
+      <div class="card clean-panel">
         <span class="badge badge-bus">Open-Top Bus H2K</span>
         <div class="card-time">16:30 – 20:30 น.</div>
         <div class="card-title">จิมซาจุ่ย & นั่งรถบัสเปิดหลังคา H2K</div>
@@ -292,7 +484,7 @@
   <!-- DAY 4 -->
   <div class="tab-content" id="day4">
     <div class="timeline">
-      <div class="card glass-panel">
+      <div class="card clean-panel">
         <span class="badge badge-border">รถบัสข้ามแดนด่าน Huanggang Port</span>
         <div class="card-time">08:30 – 10:30 น.</div>
         <div class="card-title">มงก๊ก ➔ ด่าน Huanggang Port (ข้ามไปเซินเจิ้น)</div>
@@ -302,7 +494,7 @@
         </ul>
       </div>
 
-      <div class="card glass-panel">
+      <div class="card clean-panel">
         <span class="badge badge-spot">เช็กอินหลัง 10:00 น. & เที่ยวเซินเจิ้น</span>
         <div class="card-time">10:30 – 21:00 น.</div>
         <div class="card-title">Tourism Trend Hotel, Huaqiangbei & Civic Center</div>
@@ -318,7 +510,7 @@
   <!-- DAY 5 -->
   <div class="tab-content" id="day5">
     <div class="timeline">
-      <div class="card glass-panel">
+      <div class="card clean-panel">
         <span class="badge badge-spot">เก็บตกเซินเจิ้น & เช็กเอาต์</span>
         <div class="card-time">09:00 – 12:00 น.</div>
         <div class="card-title">ช้อปปิ้งรอบ Huaqiangbei / ถนนตงเหมิน ➔ เช็กเอาต์</div>
@@ -328,18 +520,18 @@
         </ul>
       </div>
 
-      <div class="card glass-panel">
-        <span class="badge badge-border">ด่าน Huanggang Port ➔ รถบัสสาย Yau Tsim (Bay 8)</span>
+      <div class="card clean-panel">
+        <span class="badge badge-border">ด่าน Huanggang Port ➔ รถบัสข้ามแดนสาย Yau Tsim</span>
         <div class="card-time">12:30 – 15:30 น.</div>
         <div class="card-title">ข้ามด่านกลับจิมซาจุ่ย ➔ เช็กอิน Nanqiang Hostel</div>
         <ul class="route-steps">
-          <li>นั่ง MTR เซินเจิ้นจากสถานี Yannan ไปด่าน <b>Huanggang Port</b> (~15-20 นาที | 3-4 หยวน) ผ่าน ตม. กลับฝั่งฮ่องกง</li>
-          <li>ลงมาโซนรถบัสข้ามแดน <b>ชั้น L2 ช่องจอดหมายเลข 8 (Bay 8)</b> ขึ้นรถบัสสาย <b>Yau Tsim (油尖线)</b> แตะบัตร Octopus 38 HKD (~170 บาท / รถออกทุก 15 นาที)</li>
-          <li>ลงป้าย <b>The Victoria Towers</b> หรือ <b>China Hong Kong City</b> แล้วเรียกแท็กซี่ (~3-5 นาที / ~30 HKD) ไปส่งหน้าตึก Harilela Mansion, 81 Nathan Road เพื่อเช็กอิน <b>Nanqiang Hostel</b> (Booking: 1658116420493961)</li>
+          <li>นั่ง MTR เซินเจิ้นจากสถานี Yannan ไปด่าน <b>Huanggang Port</b> (~15-20 นาที | 3-4 หยวน) ผ่าน ตม. ฝั่งจีนและฮ่องกง</li>
+          <li>เดินตามป้าย <b>跨境巴士 (Cross-Boundary Coach)</b> ลงมาโซนรถบัสฝั่งฮ่องกง (ชั้น L2) ขึ้นรถบัสสีส้ม-น้ำเงินสาย <b>Yau Tsim (皇崗口岸 至 尖沙咀)</b> แตะบัตร Octopus หน้างาน <b>38 HKD</b> (ถูกกว่าซื้อในแอป 45 HKD | โหลดกระเป๋าฟรี)</li>
+          <li>นั่งสุดสายลงป้าย <b>China Hong Kong City (中港城)</b> แล้วเดินเลี้ยวซ้ายเข้าถนน Haiphong Road ~8-10 นาที (650 เมตร) หรือเรียกแท็กซี่หน้าห้าง (~30 HKD) ไปส่งหน้าตึก Harilela Mansion, 81 Nathan Road เพื่อเช็กอิน <b>Nanqiang Hostel</b> (Booking: 1658116420493961)</li>
         </ul>
       </div>
 
-      <div class="card glass-panel">
+      <div class="card clean-panel">
         <span class="badge badge-spot">ช้อปปิ้งเก็บตก & แพ็กกระเป๋า</span>
         <div class="card-time">16:00 – 21:30 น.</div>
         <div class="card-title">เดินเล่นจิมซาจุ่ย (Harbour City / K11 MUSEA)</div>
@@ -354,18 +546,18 @@
   <!-- DAY 6 -->
   <div class="tab-content" id="day6">
     <div class="timeline">
-      <div class="card glass-panel">
+      <div class="card clean-panel">
         <span class="badge badge-bus">รถบัสสนามบิน A21</span>
         <div class="card-time">08:30 – 11:15 น.</div>
         <div class="card-title">อาหารเช้าจิมซาจุ่ย ➔ สนามบินฮ่องกง (HKG)</div>
         <ul class="route-steps">
           <li>08:30 น. ทานโจ๊ก/ติ่มซำมื้อเช้าแถวจิมซาจุ่ย</li>
-          <li>10:00 น. เช็กเอาต์จาก Nanqiang Hostel ลากกระเป๋าขึ้นรถบัส <b>Cityflyer A21</b> ริมถนน Nathan ยิงตรงถึงสนามบิน (~50-60 นาที)</li>
+          <li>10:00 น. เช็กเอาต์จาก Nanqiang Hostel ลากกระเป๋าขึ้นรถบัส <b>Cityflyer A21</b> ริมถนน Nathan ยิงตรงถึงสนามบิน (~50-60 นาที | 34.6 HKD)</li>
           <li><b>11:15 น. ถึงสนามบินฮ่องกง (HKG)</b> สบายๆ ไม่ต้องลุ้นคิว ตม. ข้ามด่าน</li>
         </ul>
       </div>
 
-      <div class="card glass-panel">
+      <div class="card clean-panel">
         <span class="badge badge-spot">เที่ยวบิน SL-361 (PNR: DEYREC)</span>
         <div class="card-time">11:30 – 15:45 น.</div>
         <div class="card-title">เช็กอิน & เดินทางถึงดอนเมือง (DMK)</div>
@@ -381,7 +573,7 @@
   <!-- EXPENSES TAB -->
   <div class="tab-content" id="expenses">
     
-    <div class="glass-panel cost-card">
+    <div class="clean-panel cost-card">
       <div class="cost-title">🏨 1. ค่าที่พักอัปเดตตามใบจองจริง (เซินเจิ้น + ฮ่องกงคืนสุดท้าย)</div>
       <table class="cost-table">
         <tr>
@@ -399,33 +591,33 @@
       </table>
     </div>
 
-    <div class="glass-panel cost-card">
+    <div class="clean-panel cost-card">
       <div class="cost-title">🚌 2. ค่าเดินทางหลักไป-กลับสนามบิน & ข้ามแดน (ด่าน Huanggang)</div>
       <table class="cost-table">
         <tr>
           <td>รถบัส A21 (สนามบิน HKG ➔ มงก๊ก) ขาไป</td>
-          <td>~150 บาท / คน</td>
+          <td>34.6 HKD (~155 บาท)</td>
         </tr>
         <tr>
           <td>รถบัสข้ามแดน (มงก๊ก ➔ ด่าน Huanggang) ขาไปเซินเจิ้น</td>
-          <td>~180 - 230 บาท / คน</td>
+          <td>~40-45 HKD (~180-200 บาท)</td>
         </tr>
         <tr>
-          <td>MTR + บัส Yau Tsim (Bay 8 / 38 HKD) + แท็กซี่เข้าที่พัก</td>
-          <td>~220 - 260 บาท / คน</td>
+          <td>MTR + บัส Yau Tsim (แตะ Octopus 38 HKD) ลง China HK City</td>
+          <td>38 HKD (~170 บาท) + 4 หยวน</td>
         </tr>
         <tr>
           <td>รถบัส A21 (จิมซาจุ่ย ➔ สนามบิน HKG) ขากลับ</td>
-          <td>~150 บาท / คน</td>
+          <td>34.6 HKD (~155 บาท)</td>
         </tr>
         <tr class="cost-total-row">
           <td>รวมค่าเดินทางหลักทั้งหมดโดยประมาณ</td>
-          <td>~700 - 790 บาท / คน</td>
+          <td>~680 – 750 บาท / คน</td>
         </tr>
       </table>
     </div>
 
-    <div class="glass-panel cost-card">
+    <div class="clean-panel cost-card">
       <div class="cost-title">💳 3. สรุปยอดงบส่วนเซินเจิ้น + คืนสุดท้ายฮ่องกง (23-25 พ.ย.)</div>
       <table class="cost-table">
         <tr>
@@ -433,8 +625,8 @@
           <td>~1,600 บาท</td>
         </tr>
         <tr>
-          <td>ค่าเดินทางข้ามด่านไป-กลับ (Huanggang) + แท็กซี่ + รถบัส A21</td>
-          <td>~550 - 640 บาท</td>
+          <td>ค่าเดินทางข้ามด่านไป-กลับ (Huanggang) + รถบัส A21</td>
+          <td>~520 - 590 บาท</td>
         </tr>
         <tr>
           <td>ค่าอาหาร + MTR ระหว่างวัน (โดยประมาณ)</td>
@@ -442,7 +634,7 @@
         </tr>
         <tr class="cost-total-row">
           <td>รวมงบช่วงวันที่ 23-25 พ.ย. ประมาณการทั้งหมด</td>
-          <td>~3,650 - 4,240 บาท / คน</td>
+          <td>~3,620 - 4,190 บาท / คน</td>
         </tr>
       </table>
     </div>
@@ -452,54 +644,40 @@
 </div>
 
 <script>
-  function showTab(index) {
-    const tabs = document.querySelectorAll('.tab-btn');
-    const contents = document.querySelectorAll('.tab-content');
-    tabs.forEach((tab, i) => tab.classList.toggle('active', i === index));
-    contents.forEach((content, i) => content.classList.toggle('active', i === index));
+  const tabs = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.tab-content');
+  const indicator = document.getElementById('tabIndicator');
+  const tabsWrapper = document.getElementById('tabsWrapper');
+
+  function moveIndicator(activeBtn) {
+    if (!activeBtn || !indicator) return;
+    indicator.style.width = `${activeBtn.offsetWidth}px`;
+    indicator.style.transform = `translateX(${activeBtn.offsetLeft - 2}px)`;
     
-    setTimeout(() => {
-      document.querySelectorAll('.tab-content.active .card').forEach(c => observer.observe(c));
-    }, 20);
+    // Scroll active tab smoothly into center view on mobile
+    const scrollLeft = activeBtn.offsetLeft - (tabsWrapper.offsetWidth / 2) + (activeBtn.offsetWidth / 2);
+    tabsWrapper.scrollTo({ left: scrollLeft, behavior: 'smooth' });
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
+  function showTab(index) {
+    tabs.forEach((tab, i) => tab.classList.toggle('active', i === index));
+    
+    contents.forEach((content, i) => {
+      if (i === index) {
+        content.classList.remove('active');
+        void content.offsetWidth; // Trigger reflow to restart keyframe animation cleanly
+        content.classList.add('active');
+      } else {
+        content.classList.remove('active');
       }
     });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.card').forEach(c => observer.observe(c));
 
-  const navBar = document.getElementById('navBar');
-  window.addEventListener('scroll', () => {
-    navBar.classList.toggle('scrolled', window.scrollY > 10);
-  }, { passive: true });
-
-  const blobs = document.querySelectorAll('.blob');
-  const sheen = document.getElementById('sheen');
-  let ticking = false;
-
-  function updateParallax() {
-    const y = window.scrollY;
-    blobs.forEach(b => {
-      const depth = parseFloat(b.dataset.depth) || 0.15;
-      b.style.transform = `translateY(${y * depth}px)`;
-    });
-    sheen.style.setProperty('--my', Math.max(0, 30 - y * 0.05) + '%');
-    ticking = false;
+    moveIndicator(tabs[index]);
   }
-  window.addEventListener('scroll', () => {
-    if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
-  }, { passive: true });
 
-  window.addEventListener('pointermove', (e) => {
-    sheen.style.setProperty('--mx', (e.clientX / window.innerWidth * 100) + '%');
-  }, { passive: true });
-
-  updateParallax();
+  // Initialize pill position on load and resize
+  window.addEventListener('load', () => moveIndicator(document.querySelector('.tab-btn.active')));
+  window.addEventListener('resize', () => moveIndicator(document.querySelector('.tab-btn.active')));
 </script>
 </body>
 </html>
